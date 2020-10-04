@@ -1,7 +1,21 @@
 const CustomError = require("../extensions/custom-error");
 
-module.exports = function countCats( /* matrix */ ) {
+module.exports = function countCats(array) {
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      for (let j = 0; j < array[i].length; j++) {
+        if (array[i][j] === '^^') {
+          count++;
+        }
+      }
+    } else {
+      if (array[i] === '^^') {
+        count++;
+      }
+    }
+  }
 
-  // remove line with error and write your code here
+  return count;
 
 };
